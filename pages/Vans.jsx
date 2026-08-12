@@ -1,6 +1,10 @@
 import React from "react";
 
+import Van from "../components/Van";
+
 export default function Vans() {
+  const [vans, setVans] = React.useState(null);
+
   React.useEffect(() => {
     const controller = new AbortController();
 
@@ -12,11 +16,24 @@ export default function Vans() {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        setVans(data.vans);
       });
 
     return () => controller.abort();
   }, []);
 
-  return <h1>Vans page goes here 🚐</h1>;
+  function mapVans() {
+    if (vans) {
+      const vanEls = vans.map((van) => {
+        return (
+          <Van key={van.id} name={van.name} rate={van.price} type={van.type} />
+        );
+      });
+      return vanEls;
+    } else {
+      return <p>No vans yet.</p>;
+    }
+  }
+
+  return <div className="van-grid">{mapVans()}</div>;
 }
