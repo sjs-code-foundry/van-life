@@ -150,5 +150,73 @@ header a:hover {
 
 .van-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, 14.326875em);
+    gap: 2.118125em;
+    align-items: center;
+
+    margin: 0 1.681875em;
+}
+
+.van {
+    display: grid;
+    grid-template-areas:
+        "image image"
+        "name name"
+        "type rate";
+
+    width: 14.326875em;
+}
+
+.van-img {
+    grid-area: image;
+
+    width: inherit;
+    border-radius: 0.3125em;
+}
+
+.van-name-box {
+    grid-area: name;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #161616;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.van-name-box > p {
+    margin: 0.5em 0.25em 0 0.25em;
+}
+
+.van-type-container {
+    margin-left: 0.25em;
+}
+
+.van-type {
+    grid-area: type;
+
+    width: 5.356875em;
+
+    margin-top: 0.5em;
+    padding: 0.125em 0.625em;
+    border-radius: 0.3125em;
+
+    color: #ffead0;
+    background-color: black;
+    text-align: center;
+    text-transform: capitalize;
+
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.98125em;
+}
+
+.van-rate-unit {
+    grid-area: rate;
+
+    margin: 0 0.36em 0 0;
+
+    text-align: right;
+    font-size: 0.875rem;
 }
