@@ -26,7 +26,13 @@ export default function Vans() {
     if (vans) {
       const vanEls = vans.map((van) => {
         return (
-          <Van key={van.id} name={van.name} rate={van.price} type={van.type} />
+          <Van
+            key={van.id}
+            imgUrl={van.imageUrl}
+            name={van.name}
+            rate={van.price}
+            type={van.type}
+          />
         );
       });
       return vanEls;
