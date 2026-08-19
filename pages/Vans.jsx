@@ -27,9 +27,8 @@ export default function Vans() {
     if (vans) {
       const vanEls = vans.map((van) => {
         return (
-          <Link to={`/vans/${van.id}`}>
+          <Link key={van.id} to={`/vans/${van.id}`}>
             <Van
-              key={van.id}
               imgUrl={van.imageUrl}
               name={van.name}
               rate={van.price}
