@@ -21,6 +21,8 @@ export default function VanDetail() {
       .then((data) => {
         setDetails(data);
       });
+
+    return () => controller.abort();
   }, [params.id]);
 
   return <h1>Van detail page goes here.</h1>;
