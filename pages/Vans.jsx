@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import Van from "../components/Van";
 
@@ -27,14 +26,14 @@ export default function Vans() {
     if (vans) {
       const vanEls = vans.map((van) => {
         return (
-          <Link key={van.id} to={`/vans/${van.id}`}>
-            <Van
-              imgUrl={van.imageUrl}
-              name={van.name}
-              rate={van.price}
-              type={van.type}
-            />
-          </Link>
+          <Van
+            key={van.id}
+            id={van.id}
+            imgUrl={van.imageUrl}
+            name={van.name}
+            rate={van.price}
+            type={van.type}
+          ></Van>
         );
       });
       return vanEls;

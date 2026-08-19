@@ -167,6 +167,12 @@ header a:hover {
     width: 14.326875em;
 }
 
+.van > a {
+    /* Fix for Link component messing up formatting */
+    width: inherit;
+    text-decoration: none;
+}
+
 .van-img {
     grid-area: image;
 
@@ -212,6 +218,33 @@ header a:hover {
     line-height: 1.98125em;
 }
 
+.van-type:hover {
+    color: #ffead0;
+}
+
+.van-type:focus {
+    outline: none;
+}
+
+.van-type.selected {
+    color: #ffead0;
+}
+
+.van-type.simple:hover,
+.van-type.simple.selected {
+    background-color: #e17654;
+}
+
+.van-type.rugged:hover,
+.van-type.rugged.selected {
+    background-color: #115e59;
+}
+
+.van-type.luxury:hover,
+.van-type.luxury.selected {
+    background-color: #161616;
+}
+
 .van-rate-unit {
     grid-area: rate;
 
@@ -219,4 +252,5 @@ header a:hover {
 
     text-align: right;
     font-size: 0.875rem;
+    color: #161616;
 }
