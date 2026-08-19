@@ -19,11 +19,28 @@ export default function VanDetail() {
         return res.json();
       })
       .then((data) => {
-        setDetails(data);
+        setDetails(data.vans);
       });
 
     return () => controller.abort();
   }, [params.id]);
 
-  return <h1>Van detail page goes here.</h1>;
+  return details ? (
+    <div className="van-detail">
+      <img
+        src={details.imageUrl}
+        alt={`Large image for the ${details.name} van.`}
+      />
+      <p className={`van-type ${details.type} selected`}>{details.type}</p>
+      <h1>{details.name}</h1>
+      <div className="van-detail-rate-box">
+        <p className="van-detail-rate">{`$${details.price}`}</p>
+        <p>/day</p>
+      </div>
+      <p className="van-detail-description">{details.description}</p>
+      <button className="van-detail-btn">Rent this van</button>
+    </div>
+  ) : (
+    <h1>Loading...</h1>
+  );
 }
