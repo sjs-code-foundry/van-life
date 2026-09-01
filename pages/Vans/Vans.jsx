@@ -1,6 +1,6 @@
 import React from "react";
 
-import Van from "../components/Van";
+import Van from "../../components/Van";
 
 export default function Vans() {
   const [vans, setVans] = React.useState(null);
