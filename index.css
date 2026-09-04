@@ -376,3 +376,9 @@ footer {
     font-weight: 700;
     text-decoration: underline;
 }
+
+.host-nav > a.active-link {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #161616;
+}
