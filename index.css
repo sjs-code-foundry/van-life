@@ -65,6 +65,18 @@ header a:hover {
     transform: translate(1px, 1px);
 }
 
+footer {
+    background-color: #252525;
+
+    text-align: center;
+    padding: 1.75em 0;
+
+    color: #aaaaaa;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.636em;
+}
+
 /*** HOME PAGE ***/
 .home-container {
     background:
