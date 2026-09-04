@@ -48,6 +48,13 @@ header a:hover {
     text-decoration: underline;
 }
 
+div.site-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+}
+
 .link-button {
     display: inline-block;
     text-align: center;
@@ -66,9 +73,14 @@ header a:hover {
 }
 
 footer {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+
     background-color: #252525;
 
-    text-align: center;
+    margin-top: auto;
     padding: 1.75em 0;
 
     color: #aaaaaa;
