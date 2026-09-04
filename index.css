@@ -48,6 +48,11 @@ header a:hover {
     text-decoration: underline;
 }
 
+header a.active-link {
+    color: #161616;
+    text-decoration: underline;
+}
+
 div.site-wrapper {
     display: flex;
     flex-direction: column;
@@ -370,4 +375,8 @@ footer {
     color: #161616;
     font-weight: 700;
     text-decoration: underline;
+}
+
+.host-nav > a.active-link {
+    color: red;
 }
