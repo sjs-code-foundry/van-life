@@ -3,10 +3,8 @@ import { useParams } from "react-router-dom";
 
 export default function VanDetail() {
   const params = useParams();
-  console.log(params);
 
   const [details, setDetails] = React.useState(null);
-  console.log(details);
 
   React.useEffect(() => {
     const controller = new AbortController();
