@@ -447,3 +447,73 @@ footer {
     font-size: 1rem;
     font-weight: 500;
 }
+
+/* - Host Van Details - */
+
+.host-van-detail-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.3125em;
+
+    margin: 2.8125em 1.625em;
+}
+
+.host-van-detail-wrapper > a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6875em;
+}
+
+.host-van-detail-content-wrapper {
+    background-color: #ffffff;
+
+    padding: 1.4375em 1.5625em;
+}
+
+.host-van-detail-identity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 1.25em;
+}
+
+.host-van-detail-identity > img {
+    width: 10em;
+}
+
+.host-van-detail-name {
+    color: #161616;
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: 1.058em;
+
+    margin: 0;
+}
+
+.host-van-detail-rate {
+    font-size: 1.21875rem;
+    font-weight: 700;
+    line-height: 1.85em;
+
+    margin: 0.25em 0;
+}
+
+.host-van-detail-rate-perday {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.host-van-detail-navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.34375em;
+
+    color: #4d4d4d;
+    font-weight: 500;
+    line-height: 1.2875em;
+
+    margin: 1.6875em 0;
+}

@@ -26,7 +26,7 @@ export default function HostVanDetail() {
 
   return details ? (
     // <h1>{`Van Detail page for "${details.name}" goes here`}</h1>
-    <div>
+    <div className="host-van-detail-wrapper">
       <Link
         to={`/host/vans/`}
         aria-label={`Back to the list of the host's vans.`}
@@ -45,24 +45,28 @@ export default function HostVanDetail() {
         </svg>
         <p>Back to all vans</p>
       </Link>
-      <div>
-        <img src={details.imageUrl} alt={`Image of van ${details.name}.`} />
-        <div>
-          <p>{details.type}</p>
-          <h1>{details.name}</h1>
-          <p>
-            ${details.price}
-            <span>/day</span>
-          </p>
+      <div className="host-van-detail-content-wrapper">
+        <div className="host-van-detail-identity">
+          <img src={details.imageUrl} alt={`Image of van ${details.name}.`} />
+          <div>
+            <p className={`van-type ${details.type} selected`}>
+              {details.type}
+            </p>
+            <h1 className="host-van-detail-name">{details.name}</h1>
+            <p className="host-van-detail-rate">
+              ${details.price}
+              <span className="host-van-detail-rate-perday">/day</span>
+            </p>
+          </div>
         </div>
-      </div>
-      <div>
-        <p>Details</p>
-        <p>Pricing</p>
-        <p>Photos</p>
-      </div>
-      <div>
-        <p>Details go here, can be switched between pricing and photos.</p>
+        <div className="host-van-detail-navbar">
+          <p>Details</p>
+          <p>Pricing</p>
+          <p>Photos</p>
+        </div>
+        <div>
+          <p>Details go here, can be switched between pricing and photos.</p>
+        </div>
       </div>
     </div>
   ) : (
