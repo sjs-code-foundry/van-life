@@ -543,3 +543,8 @@ footer {
     font-size: 1rem;
     font-weight: 500;
 }
+
+.host-van-detail-info-photos-item {
+    width: 6.375em;
+    border-radius: 0.3125em;
+}

@@ -62,6 +62,18 @@ export default function HostVanDetail() {
     );
   }
 
+  function Photos() {
+    return (
+      <>
+        <img
+          className="host-van-detail-info-photos-item"
+          src={details.imageUrl}
+          alt={`Image of van ${details.name}.`}
+        />
+      </>
+    );
+  }
+
   return details ? (
     // <h1>{`Van Detail page for "${details.name}" goes here`}</h1>
     <div className="host-van-detail-wrapper">
@@ -103,7 +115,7 @@ export default function HostVanDetail() {
           <p>Photos</p>
         </div>
         <div className="host-van-detail-info-wrapper">
-          <Pricing />
+          <Photos />
         </div>
       </div>
     </div>
