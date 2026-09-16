@@ -51,6 +51,17 @@ export default function HostVanDetail() {
     );
   }
 
+  function Pricing() {
+    return (
+      <>
+        <p className="host-van-detail-info-pricing-item">
+          ${Number.parseFloat(details.price).toFixed(2)}
+          <span className="host-van-detail-info-pricing-perday">/day</span>
+        </p>
+      </>
+    );
+  }
+
   return details ? (
     // <h1>{`Van Detail page for "${details.name}" goes here`}</h1>
     <div className="host-van-detail-wrapper">
@@ -92,7 +103,7 @@ export default function HostVanDetail() {
           <p>Photos</p>
         </div>
         <div className="host-van-detail-info-wrapper">
-          <Details />
+          <Pricing />
         </div>
       </div>
     </div>

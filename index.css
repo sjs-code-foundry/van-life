@@ -530,3 +530,16 @@ footer {
 .host-van-detail-info-descriptor {
     font-weight: 700;
 }
+
+.host-van-detail-info-pricing-item {
+    color: #161616;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 0.9em;
+}
+
+.host-van-detail-info-pricing-perday {
+    color: #4d4d4d;
+    font-size: 1rem;
+    font-weight: 500;
+}
