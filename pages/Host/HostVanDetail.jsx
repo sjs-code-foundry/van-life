@@ -24,6 +24,33 @@ export default function HostVanDetail() {
     return () => controller.abort();
   }, [params.id]);
 
+  function capitalizeFirstLetter(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  function Details() {
+    return (
+      <>
+        <p className="host-van-detail-info-details-item">
+          <span className="host-van-detail-info-descriptor">Name: </span>
+          {details.name}
+        </p>
+        <p className="host-van-detail-info-details-item">
+          <span className="host-van-detail-info-descriptor">Category: </span>
+          {capitalizeFirstLetter(details.type)}
+        </p>
+        <p className="host-van-detail-info-details-item">
+          <span className="host-van-detail-info-descriptor">Description: </span>
+          {details.description}
+        </p>
+        <p className="host-van-detail-info-details-item">
+          <span className="host-van-detail-info-descriptor">Visibility: </span>
+          Public
+        </p>
+      </>
+    );
+  }
+
   return details ? (
     // <h1>{`Van Detail page for "${details.name}" goes here`}</h1>
     <div className="host-van-detail-wrapper">
@@ -64,8 +91,8 @@ export default function HostVanDetail() {
           <p>Pricing</p>
           <p>Photos</p>
         </div>
-        <div>
-          <p>Details go here, can be switched between pricing and photos.</p>
+        <div className="host-van-detail-info-wrapper">
+          <Details />
         </div>
       </div>
     </div>

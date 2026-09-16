@@ -515,5 +515,18 @@ footer {
     font-weight: 500;
     line-height: 1.2875em;
 
-    margin: 1.6875em 0;
+    margin: 1.1em 0 0.5em 0;
+}
+
+.host-van-detail-info-details-item {
+    color: #161616;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.54em;
+
+    margin: 0.75em 0;
+}
+
+.host-van-detail-info-descriptor {
+    font-weight: 700;
 }
