@@ -5,7 +5,6 @@ export default function HostVanDetail() {
   const params = useParams();
 
   const [details, setDetails] = React.useState(null);
-  console.log(details);
 
   React.useEffect(() => {
     const controller = new AbortController();
