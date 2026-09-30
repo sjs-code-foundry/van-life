@@ -469,6 +469,7 @@ footer {
     background-color: #ffffff;
 
     padding: 1.4375em 1.5625em;
+    border-radius: 0.375em;
 }
 
 .host-van-detail-identity {
@@ -511,11 +512,20 @@ footer {
     align-items: center;
     gap: 1.34375em;
 
+    margin: 1.75em 0 1.75em 0;
+}
+
+.host-van-detail-navbar > a {
     color: #4d4d4d;
     font-weight: 500;
     line-height: 1.2875em;
+    text-decoration: none;
+}
 
-    margin: 1.1em 0 0.5em 0;
+.host-van-detail-navbar > a.active-link {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #161616;
 }
 
 .host-van-detail-info-details-item {
@@ -535,7 +545,7 @@ footer {
     color: #161616;
     font-size: 1.5rem;
     font-weight: 500;
-    line-height: 0.9em;
+    line-height: 2em;
 }
 
 .host-van-detail-info-pricing-perday {

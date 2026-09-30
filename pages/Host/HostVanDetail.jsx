@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Routes, Route, Link, NavLink, useParams } from "react-router-dom";
 
 export default function HostVanDetail() {
   const params = useParams();
@@ -110,12 +110,32 @@ export default function HostVanDetail() {
           </div>
         </div>
         <div className="host-van-detail-navbar">
-          <p>Details</p>
-          <p>Pricing</p>
-          <p>Photos</p>
+          <NavLink
+            to=""
+            end
+            className={({ isActive }) => (isActive ? "active-link" : null)}
+          >
+            Details
+          </NavLink>
+          <NavLink
+            to="pricing"
+            className={({ isActive }) => (isActive ? "active-link" : null)}
+          >
+            Pricing
+          </NavLink>
+          <NavLink
+            to="photos"
+            className={({ isActive }) => (isActive ? "active-link" : null)}
+          >
+            Photos
+          </NavLink>
         </div>
         <div className="host-van-detail-info-wrapper">
-          <Photos />
+          <Routes>
+            <Route index element={<Details />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/photos" element={<Photos />} />
+          </Routes>
         </div>
       </div>
     </div>
