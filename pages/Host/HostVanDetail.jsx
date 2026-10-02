@@ -111,7 +111,7 @@ export default function HostVanDetail() {
         </div>
         <div className="host-van-detail-navbar">
           <NavLink
-            to=""
+            to="."
             end
             className={({ isActive }) => (isActive ? "active-link" : null)}
           >
