@@ -76,7 +76,11 @@ export default function HostVanDetail() {
   return details ? (
     // <h1>{`Van Detail page for "${details.name}" goes here`}</h1>
     <div className="host-van-detail-wrapper">
-      <Link to={`../vans/`} aria-label={`Back to the list of the host's vans.`}>
+      <Link
+        to={`..`}
+        relative="path"
+        aria-label={`Back to the list of the host's vans.`}
+      >
         <svg
           width="14"
           height="11"
