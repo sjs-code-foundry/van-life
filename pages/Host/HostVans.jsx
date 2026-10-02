@@ -4,7 +4,6 @@ import HostVan from "../../components/HostVan";
 
 export default function HostVans() {
   const [vans, setVans] = React.useState(null);
-  console.log(vans);
 
   React.useEffect(() => {
     const controller = new AbortController();
