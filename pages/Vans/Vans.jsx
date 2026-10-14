@@ -31,6 +31,11 @@ export default function Vans() {
   function mapVans() {
     if (vans) {
       const vanEls = vans.map((van) => {
+        if (typeFilter) {
+          if (van.type !== typeFilter) {
+            return null;
+          }
+        }
         return (
           <Van
             key={van.id}
