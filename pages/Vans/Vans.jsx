@@ -1,9 +1,15 @@
 import React from "react";
+import { useSearchParams } from "react-router-dom";
 
 import Van from "../../components/Van";
 
 export default function Vans() {
   const [vans, setVans] = React.useState(null);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const typeFilter = searchParams.get("type");
+  console.log(typeFilter);
 
   React.useEffect(() => {
     const controller = new AbortController();
