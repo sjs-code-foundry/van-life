@@ -34,9 +34,7 @@ export default function Vans() {
         .filter((van) => {
           if (typeFilter) {
             return van.type === typeFilter;
-          } else {
-            return true;
-          }
+          } else return true;
         })
         .map((van) => {
           return (
