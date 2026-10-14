@@ -179,13 +179,25 @@ footer {
 
 /* --- Van Listings --- */
 
-.van-grid {
+.van-list-container {
+    margin: 0 1.681875em;
+}
+
+.van-list-filter-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 1em;
+
+    margin-bottom: 3.48em;
+}
+
+.van-list-container .van-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, 14.326875em);
     gap: 2.118125em;
     align-items: center;
-
-    margin: 0 1.681875em;
 }
 
 .van {
@@ -274,6 +286,18 @@ footer {
 .van-type.luxury:hover,
 .van-type.luxury.selected {
     background-color: #161616;
+}
+
+.van-type.clear-filters {
+    margin-left: -1.25em;
+    width: 10em;
+    font-style: normal;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.3125em;
+    text-decoration: underline;
+    background-color: transparent;
+    color: #4d4d4d;
 }
 
 .van-rate-unit {

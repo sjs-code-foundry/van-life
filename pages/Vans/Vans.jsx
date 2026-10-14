@@ -1,5 +1,5 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 
 import Van from "../../components/Van";
 
@@ -54,5 +54,24 @@ export default function Vans() {
     }
   }
 
-  return <div className="van-grid">{mapVans()}</div>;
+  return (
+    <div className="van-list-container">
+      <h1>Explore our van options</h1>
+      <div className="van-list-filter-btns">
+        <Link className="van-type simple" to="?type=simple">
+          Simple
+        </Link>
+        <Link className="van-type luxury" to="?type=luxury">
+          Luxury
+        </Link>
+        <Link className="van-type rugged" to="?type=rugged">
+          Rugged
+        </Link>
+        <Link className="van-type clear-filters" to=".">
+          Clear filters
+        </Link>
+      </div>
+      <div className="van-grid">{mapVans()}</div>
+    </div>
+  );
 }
