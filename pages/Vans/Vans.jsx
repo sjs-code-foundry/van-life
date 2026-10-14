@@ -30,23 +30,26 @@ export default function Vans() {
 
   function mapVans() {
     if (vans) {
-      const vanEls = vans.map((van) => {
-        if (typeFilter) {
-          if (van.type !== typeFilter) {
-            return null;
+      const vanEls = vans
+        .filter((van) => {
+          if (typeFilter) {
+            return van.type === typeFilter;
+          } else {
+            return true;
           }
-        }
-        return (
-          <Van
-            key={van.id}
-            id={van.id}
-            imgUrl={van.imageUrl}
-            name={van.name}
-            rate={van.price}
-            type={van.type}
-          ></Van>
-        );
-      });
+        })
+        .map((van) => {
+          return (
+            <Van
+              key={van.id}
+              id={van.id}
+              imgUrl={van.imageUrl}
+              name={van.name}
+              rate={van.price}
+              type={van.type}
+            ></Van>
+          );
+        });
       return vanEls;
     } else {
       return <p>No vans yet.</p>;
