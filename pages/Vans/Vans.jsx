@@ -9,7 +9,6 @@ export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const typeFilter = searchParams.get("type");
-  console.log(typeFilter);
 
   React.useEffect(() => {
     const controller = new AbortController();
@@ -65,6 +64,8 @@ export default function Vans() {
     }
   }
 
+  console.log(searchParams);
+
   return (
     <div className="van-list-container">
       <h1>Explore our van options</h1>
@@ -87,12 +88,14 @@ export default function Vans() {
         >
           Rugged
         </button>
-        <button
-          className="van-type clear-filters"
-          onClick={() => handleFilterChange("type", null)}
-        >
-          Clear filter
-        </button>
+        {searchParams.size ? (
+          <button
+            className="van-type clear-filters"
+            onClick={() => handleFilterChange("type", null)}
+          >
+            Clear filter
+          </button>
+        ) : null}
       </div>
       <div className="van-grid">{mapVans()}</div>
     </div>
