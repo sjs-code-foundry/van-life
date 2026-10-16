@@ -193,6 +193,10 @@ footer {
     margin-bottom: 3.48em;
 }
 
+.van-list-filter-btns > button {
+    border: none;
+}
+
 .van-list-container .van-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, 14.326875em);
