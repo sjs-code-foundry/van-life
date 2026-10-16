@@ -1,6 +1,8 @@
 import React from "react";
 import { useSearchParams, Link } from "react-router-dom";
 
+import clsx from "clsx";
+
 import Van from "../../components/Van";
 
 export default function Vans() {
@@ -71,31 +73,31 @@ export default function Vans() {
       <h1>Explore our van options</h1>
       <div className="van-list-filter-btns">
         <button
-          className={
-            typeFilter === "simple"
-              ? "van-type simple selected"
-              : "van-type simple"
-          }
+          className={clsx(
+            "van-type",
+            "simple",
+            typeFilter === "simple" && "selected",
+          )}
           onClick={() => handleFilterChange("type", "simple")}
         >
           Simple
         </button>
         <button
-          className={
-            typeFilter === "luxury"
-              ? "van-type luxury selected"
-              : "van-type luxury"
-          }
+          className={clsx(
+            "van-type",
+            "luxury",
+            typeFilter === "luxury" && "selected",
+          )}
           onClick={() => handleFilterChange("type", "luxury")}
         >
           Luxury
         </button>
         <button
-          className={
-            typeFilter === "rugged"
-              ? "van-type rugged selected"
-              : "van-type rugged"
-          }
+          className={clsx(
+            "van-type",
+            "rugged",
+            typeFilter === "rugged" && "selected",
+          )}
           onClick={() => handleFilterChange("type", "rugged")}
         >
           Rugged
