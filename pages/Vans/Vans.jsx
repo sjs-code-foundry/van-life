@@ -28,6 +28,17 @@ export default function Vans() {
     return () => controller.abort();
   }, []);
 
+  function handleFilterChange(key, value) {
+    setSearchParams((prevParams) => {
+      if (value === null) {
+        prevParams.delete(key);
+      } else {
+        prevParams.set(key, value);
+      }
+      return prevParams;
+    });
+  }
+
   function mapVans() {
     if (vans) {
       const vanEls = vans
@@ -60,25 +71,25 @@ export default function Vans() {
       <div className="van-list-filter-btns">
         <button
           className="van-type simple"
-          onClick={() => setSearchParams({ type: "simple" })}
+          onClick={() => handleFilterChange("type", "simple")}
         >
           Simple
         </button>
         <button
           className="van-type luxury"
-          onClick={() => setSearchParams({ type: "luxury" })}
+          onClick={() => handleFilterChange("type", "luxury")}
         >
           Luxury
         </button>
         <button
           className="van-type rugged"
-          onClick={() => setSearchParams({ type: "rugged" })}
+          onClick={() => handleFilterChange("type", "rugged")}
         >
           Rugged
         </button>
         <button
           className="van-type clear-filters"
-          onClick={() => setSearchParams({})}
+          onClick={() => handleFilterChange("type", null)}
         >
           Clear filter
         </button>
