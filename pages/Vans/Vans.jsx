@@ -53,7 +53,7 @@ export default function Vans() {
             <Van
               key={van.id}
               id={van.id}
-              state={{ search: searchParams.toString() }}
+              state={{ search: `?${searchParams.toString()}` }}
               imgUrl={van.imageUrl}
               name={van.name}
               rate={van.price}
