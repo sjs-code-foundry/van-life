@@ -53,6 +53,7 @@ export default function Vans() {
             <Van
               key={van.id}
               id={van.id}
+              state={{ search: searchParams.toString() }}
               imgUrl={van.imageUrl}
               name={van.name}
               rate={van.price}
@@ -65,8 +66,6 @@ export default function Vans() {
       return <p>No vans yet.</p>;
     }
   }
-
-  console.log(searchParams);
 
   return (
     <div className="van-list-container">

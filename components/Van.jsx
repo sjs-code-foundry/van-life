@@ -5,6 +5,7 @@ export default function Van(props) {
     <div className="van">
       <Link
         to={`${props.id}`}
+        state={props.state}
         aria-label={`View details for ${props.name}, priced at $${props.rate} per day.`}
       >
         <img
