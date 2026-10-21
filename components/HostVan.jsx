@@ -4,7 +4,7 @@ export default function HostVan(props) {
   return (
     <div className="host-van">
       <Link
-        to={`/host/vans/${props.id}`}
+        to={`${props.id}`}
         aria-label={`View host-specific details for ${props.name}, priced at ${props.rate} per day.`}
       >
         <img

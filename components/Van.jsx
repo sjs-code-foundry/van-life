@@ -4,8 +4,8 @@ export default function Van(props) {
   return (
     <div className="van">
       <Link
-        to={`/vans/${props.id}`}
-        aria-label={`View details for ${props.name}, priced at ${props.rate} per day.`}
+        to={`${props.id}`}
+        aria-label={`View details for ${props.name}, priced at $${props.rate} per day.`}
       >
         <img
           className="van-img"
