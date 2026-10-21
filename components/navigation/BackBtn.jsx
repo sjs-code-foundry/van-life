@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function BackBtn(props) {
   const search = props.state?.search || "";
+  const type = props.state?.search.slice(6) || "all";
 
   return (
     <Link
@@ -22,7 +23,7 @@ export default function BackBtn(props) {
           fill="#858585"
         />
       </svg>
-      <p>Back to all vans</p>
+      <p>{`Back to ${type} vans`}</p>
     </Link>
   );
 }
