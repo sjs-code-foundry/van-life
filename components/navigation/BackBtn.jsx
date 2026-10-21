@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-export default function BackBtn() {
+export default function BackBtn(props) {
   return (
     <Link
       className="back-btn"
-      to={`..`}
+      to={`..?${props.state.search}`}
       relative="path"
       aria-label={`Back to the list of vans.`}
     >
