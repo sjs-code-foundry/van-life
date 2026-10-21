@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
+import BackBtn from "../../components/navigation/BackBtn";
+
 export default function VanDetail() {
   const params = useParams();
 
@@ -25,6 +27,7 @@ export default function VanDetail() {
 
   return details ? (
     <div className="van-detail">
+      <BackBtn />
       <img
         src={details.imageUrl}
         alt={`Large image for the ${details.name} van.`}

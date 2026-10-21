@@ -77,6 +77,13 @@ div.site-wrapper {
     transform: translate(1px, 1px);
 }
 
+.back-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6875em;
+}
+
 footer {
     display: flex;
     flex-shrink: 0;
@@ -484,13 +491,6 @@ footer {
     gap: 2.3125em;
 
     margin: 2.8125em 1.625em;
-}
-
-.host-van-detail-wrapper > a {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.6875em;
 }
 
 .host-van-detail-content-wrapper {
