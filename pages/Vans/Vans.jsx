@@ -10,6 +10,7 @@ import Van from "../../components/Van";
 export default function Vans() {
   const [vans, setVans] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -24,9 +25,10 @@ export default function Vans() {
         const data = await getVans();
         setVans(data);
       } catch (err) {
-        console.log(err);
+        setError(err);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     }
 
     loadVans();
@@ -79,6 +81,19 @@ export default function Vans() {
     return (
       <div className="van-list-container">
         <h1>Loading...</h1>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="van-list-container">
+        <h1>Error loading vans</h1>
+        <div>
+          <h2>Error message: {error.message}</h2>
+          <h2>Error code: {error.status}</h2>
+          <h2>Error type: {error.statusText}</h2>
+        </div>
       </div>
     );
   }
