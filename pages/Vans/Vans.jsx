@@ -80,7 +80,7 @@ export default function Vans() {
   if (loading) {
     return (
       <div className="van-list-container">
-        <h1>Loading...</h1>
+        <h1 aria-live="polite">Loading...</h1>
       </div>
     );
   }
@@ -90,9 +90,9 @@ export default function Vans() {
       <div className="van-list-container">
         <h1>Error loading vans</h1>
         <div>
-          <h2>Error message: {error.message}</h2>
-          <h2>Error code: {error.status}</h2>
-          <h2>Error type: {error.statusText}</h2>
+          <h2 aria-live="assertive">Error message: {error.message}</h2>
+          <h2 aria-live="assertive">Error code: {error.status}</h2>
+          <h2 aria-live="assertive">Error type: {error.statusText}</h2>
         </div>
       </div>
     );
