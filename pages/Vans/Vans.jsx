@@ -9,6 +9,7 @@ import Van from "../../components/Van";
 
 export default function Vans() {
   const [vans, setVans] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -17,20 +18,11 @@ export default function Vans() {
   React.useEffect(() => {
     const controller = new AbortController();
 
-    // fetch("/api/vans")
-    //   .then((res) => {
-    //     if (!res.ok) {
-    //       throw Error("Vans fetch request failed.");
-    //     }
-    //     return res.json();
-    //   })
-    //   .then((data) => {
-    //     setVans(data.vans);
-    //   });
-
     async function loadVans() {
+      setLoading(true);
       const data = await getVans();
       setVans(data);
+      setLoading(false);
     }
 
     loadVans();
@@ -77,6 +69,14 @@ export default function Vans() {
     } else {
       return <p>No vans yet.</p>;
     }
+  }
+
+  if (loading) {
+    return (
+      <div className="van-list-container">
+        <h1>Loading...</h1>
+      </div>
+    );
   }
 
   return (
