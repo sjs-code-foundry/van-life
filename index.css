@@ -145,6 +145,55 @@ footer {
     transform: translate(1px, 1px);
 }
 
+/*** LOGIN PAGE ***/
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-inline: 1.6875em;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 31.25em;
+}
+
+.login-form > input {
+    border: 0.0625em solid rgba(209, 213, 219);
+    height: 2.5em;
+    text-indent: 0.625em;
+    font-family: "Inter", sans-serif;
+    box-shadow: 0px 0.0625em 0.125em rgba(0, 0, 0, 0.05);
+    font-weight: 400;
+}
+
+.login-form > input:focus {
+    outline: none;
+}
+
+.login-form > input:first-of-type {
+    border-radius: 0.375em 0.375em 0px 0px;
+}
+
+.login-form > input:last-of-type {
+    border-radius: 0px 0px 0.375em 0.375em;
+    border-top: none;
+}
+
+.login-form > button {
+    background-color: #ff8c38;
+    border: none;
+    border-radius: 0.375em;
+    height: 3.4375em;
+    margin-top: 1.375em;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+
 /*** ABOUT PAGE ***/
 .about-hero-image {
     max-width: 100%;
