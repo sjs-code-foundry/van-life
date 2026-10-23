@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function BackBtn(props) {
   const search = props.state?.search || "";
-  const type = props.state?.search.slice(6) || "all";
+  const type = props.state?.type || "all";
 
   return (
     <Link
