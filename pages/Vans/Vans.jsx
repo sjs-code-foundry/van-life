@@ -3,6 +3,8 @@ import { useSearchParams } from "react-router-dom";
 
 import clsx from "clsx";
 
+import { getVans } from "../../api";
+
 import Van from "../../components/Van";
 
 export default function Vans() {
@@ -15,16 +17,23 @@ export default function Vans() {
   React.useEffect(() => {
     const controller = new AbortController();
 
-    fetch("/api/vans")
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("Vans fetch request failed.");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setVans(data.vans);
-      });
+    // fetch("/api/vans")
+    //   .then((res) => {
+    //     if (!res.ok) {
+    //       throw Error("Vans fetch request failed.");
+    //     }
+    //     return res.json();
+    //   })
+    //   .then((data) => {
+    //     setVans(data.vans);
+    //   });
+
+    async function loadVans() {
+      const data = await getVans();
+      setVans(data);
+    }
+
+    loadVans();
 
     return () => controller.abort();
   }, []);
