@@ -36,6 +36,12 @@ header .site-logo {
     font-size: 25px;
 }
 
+header nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 header a {
     text-decoration: none;
     color: #4d4d4d;
@@ -51,6 +57,16 @@ header a:hover {
 header a.active-link {
     color: #161616;
     text-decoration: underline;
+}
+
+header .login-icon {
+    height: 1.125em;
+    width: 1.125em;
+}
+
+header .login-link {
+    display: inline-flex;
+    align-items: center;
 }
 
 div.site-wrapper {
