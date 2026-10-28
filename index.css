@@ -171,6 +171,11 @@ footer {
     padding-inline: 1.6875em;
 }
 
+.login-message {
+    font-size: 1.33em;
+    font-weight: 700;
+}
+
 .login-form {
     display: flex;
     flex-direction: column;
