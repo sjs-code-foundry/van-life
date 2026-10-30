@@ -1,12 +1,16 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, NavLink, useParams } from "react-router-dom";
 
+import { getVans } from "../../api";
 import BackBtn from "../../components/navigation/BackBtn";
 
 export default function HostVanDetail() {
   const params = useParams();
 
   const [details, setDetails] = React.useState(null);
+  const [details, setDetails] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   React.useEffect(() => {
     const controller = new AbortController();
@@ -21,6 +25,19 @@ export default function HostVanDetail() {
       .then((data) => {
         setDetails(data.vans);
       });
+    async function loadVans() {
+      setLoading(true);
+      try {
+        const data = await getVans(true, params.id);
+        setDetails(data[0]);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadVans();
 
     return () => controller.abort();
   }, [params.id]);
