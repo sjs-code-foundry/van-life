@@ -8,6 +8,8 @@ export default function Login() {
   });
   const location = useLocation();
 
+  const message = location.state?.message;
+
   function handleSubmit(e) {
     e.preventDefault();
     console.log(loginFormData);
@@ -23,7 +25,7 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <p className="login-message">{location.state?.message}</p>
+      {message && <p className="login-message">{message}</p>}
       <h1>Sign in to your account</h1>
       <form onSubmit={handleSubmit} className="login-form">
         <input
