@@ -36,7 +36,7 @@ export default function HostVanDetail() {
   if (loading) {
     return (
       <div className="host-van-detail-wrapper">
-        <h1>Loading...</h1>
+        <h1 aria-live="polite">Loading...</h1>
       </div>
     );
   }

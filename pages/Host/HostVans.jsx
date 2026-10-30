@@ -33,7 +33,7 @@ export default function HostVans() {
   if (loading) {
     return (
       <div className="host-van-list">
-        <h1>Loading...</h1>
+        <h1 aria-live="polite">Loading...</h1>
       </div>
     );
   }
