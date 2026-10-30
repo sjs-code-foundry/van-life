@@ -1,26 +1,46 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
+import { getVans } from "../../api";
+
+import Error from "../../components/Error";
 import HostVan from "../../components/HostVan";
 
 export default function HostVans() {
-  const [vans, setVans] = React.useState(null);
+  const [vans, setVans] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const controller = new AbortController();
 
-    fetch("/api/host/vans")
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("Vans fetch request failed.");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setVans(data.vans);
-      });
+    async function loadVans() {
+      setLoading(true);
+      try {
+        const data = await getVans(true);
+        setVans(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadVans();
 
     return () => controller.abort();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="host-van-list">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+
+  if (error) {
+    return <Error error={error} />;
+  }
 
   function mapVans() {
     if (vans) {

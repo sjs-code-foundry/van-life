@@ -13,8 +13,6 @@ export default function HostVanDetail() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  console.log(details);
-
   useEffect(() => {
     const controller = new AbortController();
 

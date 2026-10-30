@@ -1,6 +1,5 @@
 export default function Error(props) {
   const err = props.error;
-  console.log(err);
 
   return (
     <div className="error-container">
