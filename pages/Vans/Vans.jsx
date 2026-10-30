@@ -5,6 +5,7 @@ import clsx from "clsx";
 
 import { getVans } from "../../api";
 
+import Error from "../../components/Error";
 import Van from "../../components/Van";
 
 export default function Vans() {
@@ -86,16 +87,7 @@ export default function Vans() {
   }
 
   if (error) {
-    return (
-      <div className="van-list-container">
-        <h1>Error loading vans</h1>
-        <div>
-          <h2 aria-live="assertive">Error message: {error.message}</h2>
-          <h2 aria-live="assertive">Error code: {error.status}</h2>
-          <h2 aria-live="assertive">Error type: {error.statusText}</h2>
-        </div>
-      </div>
-    );
+    return <Error error={error} />;
   }
 
   return (

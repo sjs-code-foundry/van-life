@@ -685,6 +685,12 @@ footer {
     text-decoration: none;
 }
 
+/*** ERROR HANDLING ***/
+
+.error-container {
+    margin: 0 1.681875em;
+}
+
 /*** UTILITY CLASSES ***/
 
 .shimmer {

@@ -20,7 +20,7 @@ import NotFound from "./pages/NotFound";
 import "./server";
 
 function App() {
-  const authenticated = false;
+  const authenticated = true;
 
   return (
     <BrowserRouter>

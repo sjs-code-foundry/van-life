@@ -2,29 +2,22 @@ import { useState, useEffect } from "react";
 import { Routes, Route, NavLink, useParams } from "react-router-dom";
 
 import { getVans } from "../../api";
+
+import Error from "../../components/Error";
 import BackBtn from "../../components/navigation/BackBtn";
 
 export default function HostVanDetail() {
   const params = useParams();
 
-  const [details, setDetails] = React.useState(null);
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  React.useEffect(() => {
+  console.log(details);
+
+  useEffect(() => {
     const controller = new AbortController();
 
-    fetch(`/api/vans/${params.id}`)
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("Van details fetch request failed.");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setDetails(data.vans);
-      });
     async function loadVans() {
       setLoading(true);
       try {
@@ -41,6 +34,18 @@ export default function HostVanDetail() {
 
     return () => controller.abort();
   }, [params.id]);
+
+  if (loading) {
+    return (
+      <div className="host-van-detail-wrapper">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+
+  if (error) {
+    return <Error error={error} />;
+  }
 
   function capitalizeFirstLetter(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
@@ -92,54 +97,54 @@ export default function HostVanDetail() {
     );
   }
 
-  return details ? (
-    <div className="host-van-detail-wrapper">
-      <BackBtn />
-      <div className="host-van-detail-content-wrapper">
-        <div className="host-van-detail-identity">
-          <img src={details.imageUrl} alt={`Image of van ${details.name}.`} />
-          <div>
-            <p className={`van-type ${details.type} selected`}>
-              {details.type}
-            </p>
-            <h1 className="host-van-detail-name">{details.name}</h1>
-            <p className="host-van-detail-rate">
-              ${details.price}
-              <span className="host-van-detail-rate-perday">/day</span>
-            </p>
+  return (
+    details && (
+      <div className="host-van-detail-wrapper">
+        <BackBtn />
+        <div className="host-van-detail-content-wrapper">
+          <div className="host-van-detail-identity">
+            <img src={details.imageUrl} alt={`Image of van ${details.name}.`} />
+            <div>
+              <p className={`van-type ${details.type} selected`}>
+                {details.type}
+              </p>
+              <h1 className="host-van-detail-name">{details.name}</h1>
+              <p className="host-van-detail-rate">
+                ${details.price}
+                <span className="host-van-detail-rate-perday">/day</span>
+              </p>
+            </div>
+          </div>
+          <div className="host-van-detail-navbar">
+            <NavLink
+              to="."
+              end
+              className={({ isActive }) => (isActive ? "active-link" : null)}
+            >
+              Details
+            </NavLink>
+            <NavLink
+              to="pricing"
+              className={({ isActive }) => (isActive ? "active-link" : null)}
+            >
+              Pricing
+            </NavLink>
+            <NavLink
+              to="photos"
+              className={({ isActive }) => (isActive ? "active-link" : null)}
+            >
+              Photos
+            </NavLink>
+          </div>
+          <div className="host-van-detail-info-wrapper">
+            <Routes>
+              <Route index element={<Details />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/photos" element={<Photos />} />
+            </Routes>
           </div>
         </div>
-        <div className="host-van-detail-navbar">
-          <NavLink
-            to="."
-            end
-            className={({ isActive }) => (isActive ? "active-link" : null)}
-          >
-            Details
-          </NavLink>
-          <NavLink
-            to="pricing"
-            className={({ isActive }) => (isActive ? "active-link" : null)}
-          >
-            Pricing
-          </NavLink>
-          <NavLink
-            to="photos"
-            className={({ isActive }) => (isActive ? "active-link" : null)}
-          >
-            Photos
-          </NavLink>
-        </div>
-        <div className="host-van-detail-info-wrapper">
-          <Routes>
-            <Route index element={<Details />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/photos" element={<Photos />} />
-          </Routes>
-        </div>
       </div>
-    </div>
-  ) : (
-    <h1>Loading...</h1>
+    )
   );
 }
