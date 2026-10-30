@@ -684,3 +684,22 @@ footer {
     text-align: center;
     text-decoration: none;
 }
+
+/*** UTILITY CLASSES ***/
+
+.shimmer {
+    background: linear-gradient(135deg, #5e5e5e, #000000, #5e5e5e);
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}

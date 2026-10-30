@@ -25,7 +25,7 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      {message && <p className="login-message">{message}</p>}
+      {message && <p className="login-message shimmer">{message}</p>}
       <h1>Sign in to your account</h1>
       <form onSubmit={handleSubmit} className="login-form">
         <input
