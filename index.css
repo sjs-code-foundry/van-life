@@ -691,6 +691,11 @@ footer {
     margin: 0 1.681875em;
 }
 
+.login-error-text {
+    color: red;
+    font-weight: 700;
+}
+
 /*** UTILITY CLASSES ***/
 
 .shimmer {

@@ -8,7 +8,12 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState(null);
   const location = useLocation();
+
+  console.log(status);
+  console.log(error);
 
   const message = location.state?.message;
 
@@ -17,11 +22,15 @@ export default function Login() {
     console.log(loginFormData);
 
     async function handleLogin(creds) {
+      setStatus("submitting");
+
       try {
         const data = await loginUser(creds);
         console.log(data);
       } catch (err) {
-        console.log(err);
+        setError(err);
+      } finally {
+        setStatus("idle");
       }
     }
 
@@ -40,6 +49,9 @@ export default function Login() {
     <div className="login-container">
       {message && <p className="login-message shimmer">{message}</p>}
       <h1>Sign in to your account</h1>
+      {error && (
+        <p className="login-error-text">{`Error ${error.status} (${error.statusText}): ${error.message}`}</p>
+      )}
       <form onSubmit={handleSubmit} className="login-form">
         <input
           name="email"
@@ -55,7 +67,11 @@ export default function Login() {
           placeholder="Password"
           value={loginFormData.password}
         />
-        <button>Log in</button>
+        {status === "submitting" ? (
+          <button disabled>Logging in...</button>
+        ) : (
+          <button>Log in</button>
+        )}
       </form>
     </div>
   );
