@@ -50,7 +50,7 @@ export default function Login() {
     <div className="login-container">
       {message && <p className="login-message shimmer">{message}</p>}
       <h1>Sign in to your account</h1>
-      {error && (
+      {error?.message && (
         <p className="login-error-text">{`Error ${error.status} (${error.statusText}): ${error.message}`}</p>
       )}
       <form onSubmit={handleSubmit} className="login-form">
