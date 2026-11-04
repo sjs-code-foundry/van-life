@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
+import { loginUser } from "../api";
+
 export default function Login() {
   const [loginFormData, setLoginFormData] = useState({
     email: "",
@@ -13,6 +15,17 @@ export default function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(loginFormData);
+
+    async function handleLogin(creds) {
+      try {
+        const data = await loginUser(creds);
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    handleLogin(loginFormData);
   }
 
   function handleChange(e) {
