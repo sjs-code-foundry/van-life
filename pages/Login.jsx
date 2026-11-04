@@ -23,6 +23,7 @@ export default function Login() {
 
     async function handleLogin(creds) {
       setStatus("submitting");
+      setError(null);
 
       try {
         const data = await loginUser(creds);
