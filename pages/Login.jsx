@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { loginUser } from "../api";
 
@@ -10,10 +10,9 @@ export default function Login() {
   });
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
-  const location = useLocation();
 
-  console.log(status);
-  console.log(error);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const message = location.state?.message;
 
@@ -28,6 +27,7 @@ export default function Login() {
       try {
         const data = await loginUser(creds);
         console.log(data);
+        navigate("/host");
       } catch (err) {
         setError(err);
       } finally {
