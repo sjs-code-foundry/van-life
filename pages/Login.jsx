@@ -68,11 +68,9 @@ export default function Login() {
           placeholder="Password"
           value={loginFormData.password}
         />
-        {status === "submitting" ? (
-          <button disabled>Logging in...</button>
-        ) : (
-          <button>Log in</button>
-        )}
+        <button disabled={status === "submitting"}>
+          {status === "idle" ? "Log in" : "Logging in..."}
+        </button>
       </form>
     </div>
   );
