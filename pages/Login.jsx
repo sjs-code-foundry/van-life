@@ -27,6 +27,7 @@ export default function Login() {
       try {
         const data = await loginUser(creds);
         console.log(data);
+        localStorage.setItem("loggedin", true);
         navigate("/host");
       } catch (err) {
         setError(err);

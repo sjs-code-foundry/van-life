@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
@@ -20,7 +20,11 @@ import NotFound from "./pages/NotFound";
 import "./server";
 
 function App() {
-  const authenticated = true;
+  // const [authenticated, setAuthenticated] = useState(
+  //   localStorage.getItem("loggedin"),
+  // );
+  // console.log(authenticated);
+  const authenticated = false; // Temp redundant value
 
   return (
     <BrowserRouter>

@@ -69,6 +69,27 @@ header .login-link {
     align-items: center;
 }
 
+header .temp-logout {
+    width: 2em;
+    height: 2em;
+    margin-right: 1em;
+
+    background-color: red;
+    border: none;
+    border-radius: 0.25em;
+
+    color: white;
+    font-weight: 700;
+}
+
+header .temp-logout:hover {
+    background-color: darkred;
+}
+
+header .temp-logout:active {
+    background-color: yellow;
+}
+
 div.site-wrapper {
     display: flex;
     flex-direction: column;
