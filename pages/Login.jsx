@@ -15,6 +15,7 @@ export default function Login(props) {
   const navigate = useNavigate();
 
   const message = location.state?.message;
+  const destination = location.state?.destination || "/host";
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -29,7 +30,7 @@ export default function Login(props) {
         console.log(data);
         props.setAuth(true);
         localStorage.setItem("loggedin", true);
-        navigate("/host", { replace: true });
+        navigate(destination, { replace: true });
       } catch (err) {
         setError(err);
       } finally {
