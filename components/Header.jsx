@@ -1,9 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 
+import clsx from "clsx";
+
 import loginAvatar from "/assets/images/avatar-icon.png";
 
-export default function Header() {
+export default function Header(props) {
   function fakeLogout() {
+    props.setAuth(null);
     localStorage.removeItem("loggedin");
   }
 
@@ -32,7 +35,10 @@ export default function Header() {
           Vans
         </NavLink>
         <Link to="login" className="login-link">
-          <img src={loginAvatar} className="login-icon" />
+          <img
+            src={loginAvatar}
+            className={clsx("login-icon", props.auth && "logged-in")}
+          />
         </Link>
         <button className="temp-logout" onClick={fakeLogout}>
           X

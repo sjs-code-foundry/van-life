@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { loginUser } from "../api";
 
-export default function Login() {
+export default function Login(props) {
   const [loginFormData, setLoginFormData] = useState({
     email: "",
     password: "",
@@ -27,6 +27,7 @@ export default function Login() {
       try {
         const data = await loginUser(creds);
         console.log(data);
+        props.setAuth(true);
         localStorage.setItem("loggedin", true);
         navigate("/host");
       } catch (err) {

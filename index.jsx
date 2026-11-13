@@ -24,18 +24,30 @@ function App() {
   //   localStorage.getItem("loggedin"),
   // );
   // console.log(authenticated);
-  const authenticated = false; // Temp redundant value
+
+  const [auth, setAuth] = useState(
+    convertAuthState(localStorage.getItem("loggedin")),
+  );
+  console.log(auth);
+
+  function convertAuthState(str) {
+    if (str === "true") {
+      return true;
+    } else {
+      return null;
+    }
+  }
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout auth={auth} setAuth={setAuth} />}>
           <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login setAuth={setAuth} />} />
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
-          <Route element={<AuthRequired auth={authenticated} />}>
+          <Route element={<AuthRequired auth={auth} />}>
             <Route path="host" element={<HostLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="income" element={<Income />} />
