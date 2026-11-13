@@ -20,15 +20,9 @@ import NotFound from "./pages/NotFound";
 import "./server";
 
 function App() {
-  // const [authenticated, setAuthenticated] = useState(
-  //   localStorage.getItem("loggedin"),
-  // );
-  // console.log(authenticated);
-
   const [auth, setAuth] = useState(
     convertAuthState(localStorage.getItem("loggedin")),
   );
-  console.log(auth);
 
   function convertAuthState(str) {
     if (str === "true") {

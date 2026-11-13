@@ -29,7 +29,7 @@ export default function Login(props) {
         console.log(data);
         props.setAuth(true);
         localStorage.setItem("loggedin", true);
-        navigate("/host");
+        navigate("/host", { replace: true });
       } catch (err) {
         setError(err);
       } finally {
