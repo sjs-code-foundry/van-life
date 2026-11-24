@@ -111,6 +111,104 @@ createServer({
       amount: 1100,
       currency: "USD",
     });
+    server.create("transaction", {
+      id: "5",
+      hostId: "123",
+      date: "2022-08-12",
+      amount: 800,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "6",
+      hostId: "123",
+      date: "2022-08-17",
+      amount: 600,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "7",
+      hostId: "123",
+      date: "2022-09-01",
+      amount: 600,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "8",
+      hostId: "123",
+      date: "2022-09-05",
+      amount: 900,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "9",
+      hostId: "123",
+      date: "2022-09-11",
+      amount: 750,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "10",
+      hostId: "123",
+      date: "2022-09-19",
+      amount: 750,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "11",
+      hostId: "123",
+      date: "2022-10-03",
+      amount: 500,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "12",
+      hostId: "123",
+      date: "2022-10-04",
+      amount: 800,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "13",
+      hostId: "123",
+      date: "2022-10-09",
+      amount: 700,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "14",
+      hostId: "123",
+      date: "2022-10-19",
+      amount: 250,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "15",
+      hostId: "123",
+      date: "2022-10-25",
+      amount: 450,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "16",
+      hostId: "123",
+      date: "2022-11-10",
+      amount: 560,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "17",
+      hostId: "123",
+      date: "2022-11-23",
+      amount: 980,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "18",
+      hostId: "123",
+      date: "2022-12-01",
+      amount: 720,
+      currency: "USD",
+    });
   },
 
   routes() {
