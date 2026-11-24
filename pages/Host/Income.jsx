@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import { getTransactions } from "../../api";
 
+import Error from "../../components/Error";
+
 export default function Income() {
   const [transactions, setTransactions] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -64,6 +66,18 @@ export default function Income() {
 
   const monthlyIncomeArr = groupTransactionsByMonth();
   console.log(monthlyIncomeArr);
+
+  if (loading) {
+    return (
+      <div className="van-list-container">
+        <h1 aria-live="polite">Loading...</h1>
+      </div>
+    );
+  }
+
+  if (error) {
+    return <Error error={error} />;
+  }
 
   return <h1>Host Income here.</h1>;
 }
