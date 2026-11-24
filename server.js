@@ -4,6 +4,8 @@ createServer({
   models: {
     vans: Model,
     users: Model,
+    transactions: Model,
+    reviews: Model,
   },
 
   seeds(server) {
@@ -80,6 +82,35 @@ createServer({
       password: "p123",
       name: "Bob",
     });
+
+    server.create("transaction", {
+      id: "1",
+      hostId: "123",
+      date: "2022-07-10",
+      amount: 1200,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "2",
+      hostId: "123",
+      date: "2022-07-18",
+      amount: 900,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "3",
+      hostId: "123",
+      date: "2022-07-26",
+      amount: 800,
+      currency: "USD",
+    });
+    server.create("transaction", {
+      id: "4",
+      hostId: "123",
+      date: "2022-07-30",
+      amount: 1100,
+      currency: "USD",
+    });
   },
 
   routes() {
@@ -95,6 +126,12 @@ createServer({
     this.get("/vans/:id", (schema, request) => {
       const id = request.params.id;
       return schema.vans.find(id);
+      // return new Response(400, {}, { error: "Error fetching data" });
+    });
+
+    this.get("/host/income", (schema, request) => {
+      // Hard-code the hostId for now
+      return schema.transactions.where({ hostId: "123" });
       // return new Response(400, {}, { error: "Error fetching data" });
     });
 

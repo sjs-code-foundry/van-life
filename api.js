@@ -37,3 +37,16 @@ export async function loginUser(creds) {
 
   return data;
 }
+
+export async function getTransactions() {
+  const res = await fetch("/api/host/income");
+  if (!res.ok) {
+    throw {
+      message: "Failed to fetch transactions",
+      statusText: res.statusText,
+      status: res.status,
+    };
+  }
+  const data = await res.json();
+  return data.transactions;
+}
