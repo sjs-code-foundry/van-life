@@ -31,5 +31,39 @@ export default function Income() {
     return () => controller.abort();
   }, []);
 
+  function groupTransactionsByMonth() {
+    let arr = [];
+
+    for (let i in transactions) {
+      const monthCode = Temporal.PlainDate.from(transactions[i].date).monthCode;
+
+      if (
+        arr.some((month) => {
+          return month.code === monthCode;
+        })
+      ) {
+        // Add value to month total
+        const updatedArr = arr.map((month) => {
+          if (month.code === monthCode) {
+            month.value = month.value + transactions[i].amount;
+          }
+          return month;
+        });
+        arr = updatedArr;
+      } else {
+        // If month doesn't exist, add month along with transaction value
+        arr.push({ code: monthCode, value: transactions[i].amount });
+      }
+    }
+    return arr;
+  }
+
+  function findTransactionsFromTimePeriod() {
+    // Creates an array of transactions from a specified period, back from today's date
+  }
+
+  const monthlyIncomeArr = groupTransactionsByMonth();
+  console.log(monthlyIncomeArr);
+
   return <h1>Host Income here.</h1>;
 }
