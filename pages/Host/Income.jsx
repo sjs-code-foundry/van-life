@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import * as d3 from "d3";
+
 import { getTransactions } from "../../api";
 
 import Error from "../../components/Error";
@@ -130,6 +132,9 @@ export default function Income() {
       return <p>No Transactions.</p>;
     }
   }
+
+  // Implement Bar Chart:
+  // https://www.react-graph-gallery.com/barplot
 
   if (loading) {
     return (
