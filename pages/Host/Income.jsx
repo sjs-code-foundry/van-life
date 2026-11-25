@@ -8,8 +8,10 @@ export default function Income() {
   const [transactions, setTransactions] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   console.log(transactions);
+
+  const dataPoints = getDataPoints(transactions);
+  console.log(dataPoints);
 
   // console.log(Temporal.PlainDate.from("2025-07-11").toString());
 
@@ -33,39 +35,67 @@ export default function Income() {
     return () => controller.abort();
   }, []);
 
-  function groupTransactionsByMonth() {
-    let arr = [];
+  function getDataPoints(data) {
+    if (data) {
+      console.log("Transaction data processed");
 
-    for (let i in transactions) {
-      const monthCode = Temporal.PlainDate.from(transactions[i].date).monthCode;
+      function groupTransactionsByMonth() {
+        let arr = [];
 
-      if (
-        arr.some((month) => {
-          return month.code === monthCode;
-        })
-      ) {
-        // Add value to month total
-        const updatedArr = arr.map((month) => {
-          if (month.code === monthCode) {
-            month.value = month.value + transactions[i].amount;
+        for (let i in data) {
+          const monthCode = Temporal.PlainDate.from(data[i].date).monthCode;
+
+          if (
+            arr.some((month) => {
+              return month.code === monthCode;
+            })
+          ) {
+            // Add value to month total
+            const updatedArr = arr.map((month) => {
+              if (month.code === monthCode) {
+                month.value = month.value + data[i].amount;
+              }
+              return month;
+            });
+            arr = updatedArr;
+          } else {
+            // If month doesn't exist, add month along with transaction value
+            arr.push({ code: monthCode, value: data[i].amount });
           }
-          return month;
-        });
-        arr = updatedArr;
-      } else {
-        // If month doesn't exist, add month along with transaction value
-        arr.push({ code: monthCode, value: transactions[i].amount });
+        }
+        return arr;
       }
+
+      function findTransactionsFromTimePeriod() {
+        // Creates an array of transactions from a specified period, back from today's date
+
+        const today = Temporal.PlainDate.from("2022-12-09");
+        // Use static date to ensure data stays in view
+        const viewPeriodDays = 30;
+
+        const cutOff = today.subtract({ days: viewPeriodDays });
+
+        let arr = [];
+
+        for (let i in data) {
+          const dpDate = Temporal.PlainDate.from(data[i].date);
+
+          if (dpDate.since(cutOff).days > 0) {
+            arr.push({ date: data[i].date, amount: data[i].amount });
+          }
+        }
+
+        return arr;
+      }
+
+      return {
+        graphData: groupTransactionsByMonth(),
+        transactionList: findTransactionsFromTimePeriod(),
+      };
+    } else {
+      return { graphData: null, transactionList: null };
     }
-    return arr;
   }
-
-  function findTransactionsFromTimePeriod() {
-    // Creates an array of transactions from a specified period, back from today's date
-  }
-
-  const monthlyIncomeArr = groupTransactionsByMonth();
-  console.log(monthlyIncomeArr);
 
   if (loading) {
     return (
