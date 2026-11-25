@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-import * as d3 from "d3";
-
 import { getTransactions } from "../../api";
 
 import Error from "../../components/Error";
