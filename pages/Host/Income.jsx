@@ -105,7 +105,17 @@ export default function Income() {
 
   function mapDataPoints(data) {
     if (data) {
-      const recentEls = data.map((dp) => {
+      let sortedData = data.sort(function (a, b) {
+        const keyA = Temporal.PlainDate.from(a.date);
+        const keyB = Temporal.PlainDate.from(b.date);
+
+        // Compare the two dates
+        if (keyA.since(keyB).days > 0) return -1;
+        if (keyA.since(keyB).days < 0) return 1;
+        return 0;
+      });
+
+      const recentEls = sortedData.map((dp) => {
         console.log(dp);
         return (
           <div className="host-income-recents-datapoint">
