@@ -514,6 +514,23 @@ footer {
     color: #161616;
 }
 
+/* --- Host Income --- */
+
+.host-income-container {
+    margin: 0 1.681875em;
+}
+
+.period-text {
+    color: #4d4d4d;
+    font-weight: 500;
+    line-height: 1.375em;
+}
+
+.period-duration {
+    text-decoration: underline;
+    font-weight: 700;
+}
+
 /* -- Host Vans -- */
 
 .host-van-list {

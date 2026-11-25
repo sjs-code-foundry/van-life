@@ -8,12 +8,10 @@ export default function Income() {
   const [transactions, setTransactions] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log(transactions);
+  // console.log(transactions);
 
   const dataPoints = getDataPoints(transactions);
   console.log(dataPoints);
-
-  // console.log(Temporal.PlainDate.from("2025-07-11").toString());
 
   useEffect(() => {
     const controller = new AbortController();
@@ -97,6 +95,14 @@ export default function Income() {
     }
   }
 
+  function PeriodDisplay() {
+    return (
+      <p className="period-text">
+        Last <span className="period-duration">30 days</span>
+      </p>
+    );
+  }
+
   if (loading) {
     return (
       <div className="van-list-container">
@@ -109,5 +115,10 @@ export default function Income() {
     return <Error error={error} />;
   }
 
-  return <h1>Host Income here.</h1>;
+  return (
+    <div className="host-income-container">
+      <h1>Income</h1>
+      <PeriodDisplay />
+    </div>
+  );
 }
