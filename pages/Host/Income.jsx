@@ -103,6 +103,24 @@ export default function Income() {
     );
   }
 
+  function mapDataPoints(data) {
+    if (data) {
+      const recentEls = data.map((dp) => {
+        console.log(dp);
+        return (
+          <div className="host-income-recents-datapoint">
+            <h3>${dp.amount}</h3>
+            <p>{dp.date}</p>
+          </div>
+        );
+      });
+
+      return recentEls;
+    } else {
+      return <p>No Transactions.</p>;
+    }
+  }
+
   if (loading) {
     return (
       <div className="van-list-container">
@@ -119,6 +137,15 @@ export default function Income() {
     <div className="host-income-container">
       <h1>Income</h1>
       <PeriodDisplay />
+      <h2 className="host-period-total">$2260</h2>
+      <div className="host-income-graph-container"></div>
+      <div className="host-income-recents-header">
+        <h2>Your transactions (x)</h2>
+        <PeriodDisplay />
+      </div>
+      <div className="host-income-recents-list">
+        {mapDataPoints(dataPoints.transactionList)}
+      </div>
     </div>
   );
 }

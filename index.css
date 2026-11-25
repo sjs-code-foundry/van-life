@@ -518,9 +518,21 @@ footer {
 
 .host-income-container {
     margin: 0 1.681875em;
+
+    color: #161616;
+}
+
+.host-income-container > h1 {
+    margin: 1.58em 0 1.194em 0;
+
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 0.61em;
 }
 
 .period-text {
+    margin: 0;
+
     color: #4d4d4d;
     font-weight: 500;
     line-height: 1.375em;
@@ -529,6 +541,64 @@ footer {
 .period-duration {
     text-decoration: underline;
     font-weight: 700;
+}
+
+.host-period-total {
+    margin: 0.6em 0 1em 0;
+
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 0.792em;
+}
+
+.host-income-graph-container {
+    margin-top: 4em;
+    height: 30em;
+
+    border: 1px solid red;
+}
+
+.host-income-recents-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.host-income-recents-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    margin-bottom: 4em;
+}
+
+.host-income-recents-datapoint {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #ffffff;
+
+    padding: 2.1875em 1.8125em;
+    border: none;
+    border-radius: 0.375em;
+
+    font-size: 1rem;
+}
+
+.host-income-recents-datapoint > h3 {
+    margin: 0;
+
+    font-size: 2.25rem;
+}
+
+.host-income-recents-datapoint > p {
+    margin: 0;
+
+    color: #4d4d4d;
+    font-size: 1.25rem;
 }
 
 /* -- Host Vans -- */
