@@ -115,10 +115,10 @@ export default function Income() {
         return 0;
       });
 
-      const recentEls = sortedData.map((dp) => {
+      const recentEls = sortedData.map((dp, index) => {
         console.log(dp);
         return (
-          <div className="host-income-recents-datapoint">
+          <div key={index} className="host-income-recents-datapoint">
             <h3>${dp.amount}</h3>
             <p>{Temporal.PlainDate.from(dp.date).toLocaleString("en-us")}</p>
           </div>
