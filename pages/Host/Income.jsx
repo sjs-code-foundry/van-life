@@ -120,7 +120,7 @@ export default function Income() {
         return (
           <div className="host-income-recents-datapoint">
             <h3>${dp.amount}</h3>
-            <p>{dp.date}</p>
+            <p>{Temporal.PlainDate.from(dp.date).toLocaleString("en-us")}</p>
           </div>
         );
       });
