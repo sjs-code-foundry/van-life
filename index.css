@@ -558,6 +558,28 @@ footer {
     border: 1px solid red;
 }
 
+.host-income-graph-bar {
+    opacity: 0.9;
+    stroke: blue;
+    stroke-width: 1;
+    fill: lightBlue;
+    fill-opacity: 0.6;
+    rx: 1;
+}
+
+.host-income-graph-line {
+    stroke: #b9b9b9;
+    opacity: 0.8;
+}
+
+.host-income-graph-line-label {
+    text-anchor: middle;
+    alignment-baseline: central;
+    font-size: 0.5625em;
+    stroke: #808080;
+    opacity: 0.8;
+}
+
 .host-income-recents-header {
     display: flex;
     flex-direction: row;

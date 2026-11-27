@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getTransactions } from "../../api";
 
 import Error from "../../components/Error";
+import BarChart from "../../components/data/BarChart";
 
 export default function Income() {
   const [transactions, setTransactions] = useState(null);
@@ -87,11 +88,11 @@ export default function Income() {
       }
 
       return {
-        graphData: groupTransactionsByMonth(),
+        chartData: groupTransactionsByMonth(),
         transactionList: findTransactionsFromTimePeriod(),
       };
     } else {
-      return { graphData: null, transactionList: null };
+      return { chartData: null, transactionList: null };
     }
   }
 
@@ -151,7 +152,9 @@ export default function Income() {
       <h1>Income</h1>
       <PeriodDisplay />
       <h2 className="host-period-total">$2260</h2>
-      <div className="host-income-graph-container"></div>
+      <div className="host-income-graph-container">
+        <BarChart width={400} height={400} data={dataPoints.chartData} />
+      </div>
       <div className="host-income-recents-header">
         <h2>Your transactions (x)</h2>
         <PeriodDisplay />
