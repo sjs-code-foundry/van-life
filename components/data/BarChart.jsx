@@ -1,21 +1,26 @@
+import { useRef, useEffect } from "react";
+
 import * as d3 from "d3";
 
-// Implement Bar Graph:
-// https://d3-graph-gallery.com/graph/barplot_basic.html
-
 export default function BarChart(props) {
-  // Test data:
-  const data = [
-    { name: "Mark", value: 90 },
-    { name: "Robert", value: 12 },
-    { name: "Emily", value: 34 },
-    { name: "Marion", value: 53 },
-    { name: "Nicolas", value: 98 },
-  ];
+  const chartRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      const chartStyle = getComputedStyle(chartRef.current);
+      console.log(chartStyle);
+
+      // if (chartRef.current === null) {
+      // Do stuff if not loaded yet
+      // }
+    });
+  }, []);
+
   const groups = props.data.map((dataPoint) => dataPoint.code);
 
   // Define margins
   const margin = { top: 30, right: 30, bottom: 30, left: 30 };
+  // Can we implement this through CSS instead?
   const boundsWidth = props.width - margin.right - margin.left;
   const boundsHeight = props.height - margin.top - margin.bottom;
 
@@ -51,21 +56,11 @@ export default function BarChart(props) {
           height={boundsHeight - scaleY(dataPoint.value)}
         />
         <text
-          x={x + scaleX.bandwidth() / 2}
-          y={scaleY(dataPoint.value) - 10}
-          textAnchor="middle"
-          alignmentBaseline="central"
-          fontSize={12}
-        >
-          {dataPoint.value}
-        </text>
-        <text
+          className="host-income-graph-label"
           x={x + scaleX.bandwidth() / 2}
           y={boundsHeight + 10}
-          textAnchor="middle"
-          alignmentBaseline="central"
-          fontSize={12}
         >
+          {/* Use Temporal to convert into month name */}
           {dataPoint.code}
         </text>
       </g>
@@ -96,7 +91,7 @@ export default function BarChart(props) {
 
   return (
     <div>
-      <svg width={props.width} height={props.height}>
+      <svg width={props.width} height={props.height} ref={chartRef}>
         <g
           width={boundsWidth}
           height={boundsHeight}

@@ -567,6 +567,12 @@ footer {
     rx: 1;
 }
 
+.host-income-graph-label {
+    text-anchor: middle;
+    alignment-baseline: central;
+    font-size: 0.5625em;
+}
+
 .host-income-graph-line {
     stroke: #b9b9b9;
     opacity: 0.8;
